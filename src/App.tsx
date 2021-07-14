@@ -1,5 +1,7 @@
-const App = () => {
-	return <div className="app"></div>;
-};
+import React, { FC } from 'react'
 
-export default App;
+const App: FC = () => {
+   return <div className="app">App</div>
+}
+
+export default App
