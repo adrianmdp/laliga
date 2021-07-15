@@ -11,6 +11,7 @@
          "@hooks": ["./src/hooks"],
          "@redux": ["./src/redux"],
          "@screens": ["./src/screens"],
+         "@styles": ["./src/styles"],
          "@types": ["./src/types"],
          "@utils": ["./src/utils"]
       }
