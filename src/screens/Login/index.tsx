@@ -4,10 +4,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { FormWrapper, Button, Input } from '@styles'
+import { LoginForm } from '@types'
 import { Layout } from '@components'
+import { useAuth } from '@hooks'
 import Logo from '@assets/images/logo.png'
-
-import { LoginForm } from './types'
 
 import './styles.scss'
 
@@ -27,8 +27,12 @@ const Login: FC = () => {
       resolver: yupResolver(validationSchema),
    })
 
+   const { login } = useAuth()
+
    const onSubmit: SubmitHandler<LoginForm> = data => {
-      console.log(data)
+      login(data).then(response => {
+         console.log(response)
+      })
    }
 
    return (
