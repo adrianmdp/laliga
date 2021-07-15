@@ -1,0 +1,21 @@
+.login {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   .form-wrapper {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 60px;
+
+      .logo {
+         display: block;
+         width: 180px;
+         margin: 0px auto 40px;
+      }
+
+      .form {
+         display: flex;
+         flex-direction: column;
+      }
+   }
+}
