@@ -11,7 +11,7 @@ const App: FC = () => {
          <Router>
             <Switch>
                <Route path="/login" component={Login} />
-               <Route path="/users" component={Users} />
+               <Route path="/users/:page" component={Users} />
             </Switch>
          </Router>
       </Provider>

@@ -19,7 +19,6 @@ const initialState: State = {
 }
 
 const auth = (state: State = initialState, action: Action): State => {
-   console.log(action, state)
    switch (action.type) {
       case USER_AUTH_START:
          return {

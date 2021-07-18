@@ -1,14 +1,18 @@
 import { ForkEffect, put, /* call, */ takeLatest } from 'redux-saga/effects'
 
 import { api } from '@utils'
-import { LoginForm, UsersResponse } from '@types'
+import { UsersResponse } from '@types'
 
 import { USERS_GET_START, USERS_GET_SUCCESS, USERS_GET_FAILURE } from '../../actionsTypes'
+import { GenUsersResponse } from './types'
 
-export function* getUsers() {
+export function* getUsers({ page }: { page: string } & { type: string }): GenUsersResponse {
    try {
-      const usersResponse: UsersResponse = yield api.post<UsersResponse>('/users')
-      yield put({ type: USERS_GET_SUCCESS, payload: usersResponse })
+      const usersResponse: { data: UsersResponse } = yield api.get<{ data: UsersResponse }>(
+         '/users',
+         { params: { page } },
+      )
+      yield put({ type: USERS_GET_SUCCESS, payload: usersResponse.data })
    } catch (err) {
       put({ type: USERS_GET_FAILURE })
       console.log(err)
