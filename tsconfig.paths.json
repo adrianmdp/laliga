@@ -9,7 +9,7 @@
          "@constants": ["./src/constants"],
          "@contexts": ["./src/contexts"],
          "@hooks": ["./src/hooks"],
-         "@redux": ["./src/redux"],
+         "@redux/*": ["./src/redux/*"],
          "@screens": ["./src/screens"],
          "@styles": ["./src/styles"],
          "@types": ["./src/types"],

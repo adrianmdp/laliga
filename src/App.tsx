@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { store } from '@redux'
-import { Login, Users } from '@screens'
+import { store } from './redux'
+import { Login, Users } from './screens'
 
 const App: FC = () => {
    return (

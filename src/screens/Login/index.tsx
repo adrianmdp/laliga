@@ -1,13 +1,14 @@
 import React, { FC } from 'react'
+import { useHistory } from 'react-router-dom'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 
 import { FormWrapper, Button, Input } from '@styles'
+import { LoginForm } from '@types'
 import { Layout } from '@components'
+import { useAuth } from '@hooks'
 import Logo from '@assets/images/logo.png'
-
-import { LoginForm } from './types'
 
 import './styles.scss'
 
@@ -18,6 +19,8 @@ const validationSchema = yup.object().shape({
 const defaultValues = { email: '', password: '' }
 
 const Login: FC = () => {
+   const { push } = useHistory()
+
    const {
       handleSubmit,
       control,
@@ -27,8 +30,10 @@ const Login: FC = () => {
       resolver: yupResolver(validationSchema),
    })
 
+   const { login } = useAuth()
+
    const onSubmit: SubmitHandler<LoginForm> = data => {
-      console.log(data)
+      if (login(data)) push('/users')
    }
 
    return (
