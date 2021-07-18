@@ -1,14 +1,27 @@
-import { LoginForm } from '@types'
-import { api } from '@utils'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-const useAuth = () => {
-   const login = async (formData: LoginForm) => {
+import { KEYS } from '@constants'
+import { useLocalStorage } from '@hooks'
+import { authStart } from '@redux/actions/auth'
+import { LoginForm, AuthResponse } from '@types'
+
+const useAuth = (): AuthResponse => {
+   const dispatch = useDispatch()
+   const [, setValue] = useLocalStorage<string>(KEYS.STORAGE.SESSION_TOKEN)
+   const auth = useSelector((state: { auth: { loading: string; token: string } }) => state.auth)
+
+   useEffect(() => {
+      if (auth.token !== '') setValue(auth.token)
+   }, [auth.token, setValue])
+
+   const login = (formData: LoginForm): boolean => {
       try {
-         const response = await api.post('/login', formData)
-         return response.data
+         dispatch(authStart(formData))
       } catch (err) {
          throw err.response.data.error
       }
+      return true
    }
 
    return { login }

@@ -1,7 +1,9 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import reduxSaga from 'redux-saga'
 
-import allSaga from '../saga'
+import { auth } from '@redux/reducers'
+
+import allSaga from '../sagas'
 
 declare global {
    interface Window {
@@ -13,7 +15,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const sagaMiddleware = reduxSaga()
 
-const reducers = combineReducers({})
+const reducers = combineReducers({ auth })
 
 const store = {
    ...createStore(reducers, composeEnhancers(applyMiddleware(sagaMiddleware))),
