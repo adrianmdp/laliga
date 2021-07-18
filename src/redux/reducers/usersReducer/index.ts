@@ -1,13 +1,14 @@
-import { USER_AUTH_START, USER_AUTH_SUCCESS, USER_AUTH_FAILURE } from '../../actionsTypes'
+import { UsersResponse } from '@types'
+
+import { USERS_GET_START, USERS_GET_SUCCESS, USERS_GET_FAILURE } from '../../actionsTypes'
 
 type Action = {
    type: string
-   payload: string
+   payload: UsersResponse
 }
 
 type State = {
    loading: boolean
-   token: string
    error?: {
       message: string
    }
@@ -15,27 +16,24 @@ type State = {
 
 const initialState: State = {
    loading: false,
-   token: '',
 }
 
-const auth = (state: State = initialState, action: Action): State => {
+const users = (state: State = initialState, action: Action): State => {
    switch (action.type) {
-      case USER_AUTH_START:
+      case USERS_GET_START:
          return {
             loading: true,
-            token: '',
          }
 
-      case USER_AUTH_SUCCESS:
+      case USERS_GET_SUCCESS:
          return {
             loading: false,
-            token: action.payload,
+            ...action.payload,
          }
 
-      case USER_AUTH_FAILURE:
+      case USERS_GET_FAILURE:
          return {
             loading: false,
-            token: '',
          }
 
       default:
@@ -43,4 +41,4 @@ const auth = (state: State = initialState, action: Action): State => {
    }
 }
 
-export { auth }
+export { users }

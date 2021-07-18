@@ -15,6 +15,12 @@ const Wrapper = styled.div`
 
 const Main = styled.main``
 
+const Container = styled.div`
+   width: 50vw;
+   max-width: 1400px;
+   margin: auto;
+`
+
 const Button = styled.button<IButton>`
    background-color: ${props => {
       switch (props.styled) {
@@ -59,4 +65,18 @@ const FormWrapper = styled.div`
    border-radius: ${theme.borderRadius}px;
 `
 
-export { Wrapper, Main, Button, FormWrapper, Input }
+const List = styled.ul`
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+`
+
+const ListItem = styled.li`
+   margin-bottom: 20px;
+`
+
+const Paginator = styled.ul``
+
+export { Container, Wrapper, Main, Button, FormWrapper, Input, List, ListItem, Paginator }

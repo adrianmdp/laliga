@@ -2,9 +2,10 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { KEYS } from '@constants'
-import { useLocalStorage } from '@hooks'
 import { authStart } from '@redux/actions/auth'
 import { LoginForm, AuthResponse } from '@types'
+
+import { useLocalStorage } from '../useLocalStorage'
 
 const useAuth = (): AuthResponse => {
    const dispatch = useDispatch()

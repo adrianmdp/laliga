@@ -16,7 +16,7 @@ const validationSchema = yup.object().shape({
    email: yup.string().email().required(),
    password: yup.string().required(),
 })
-const defaultValues = { email: '', password: '' }
+const defaultValues = { email: 'eve.holt@reqres.in', password: 'cityslicka' }
 
 const Login: FC = () => {
    const { push } = useHistory()
