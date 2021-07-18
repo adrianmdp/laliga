@@ -59,4 +59,8 @@ const FormWrapper = styled.div`
    border-radius: ${theme.borderRadius}px;
 `
 
-export { Wrapper, Main, Button, FormWrapper, Input }
+const List = styled.ul``
+
+const ListItem = styled.li``
+
+export { Wrapper, Main, Button, FormWrapper, Input, List, ListItem }
