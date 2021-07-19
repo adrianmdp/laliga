@@ -16,7 +16,6 @@ const useAuth = (): AuthResponse => {
    const [isUserLogged, setIsUserLogged] = useState(storedValue !== undefined && storedValue !== '')
 
    useEffect(() => {
-      console.log('auth.token', auth.token)
       if (auth.token !== '') setValue(auth.token)
    }, [auth.token])
 
@@ -30,7 +29,6 @@ const useAuth = (): AuthResponse => {
    }
 
    const logout = async () => {
-      console.log('logout')
       clear()
       setValue('')
       setIsUserLogged(false)
