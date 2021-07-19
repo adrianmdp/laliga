@@ -33,7 +33,7 @@ const Login: FC = () => {
    const { login } = useAuth()
 
    const onSubmit: SubmitHandler<LoginForm> = data => {
-      if (login(data)) push('/users')
+      if (login(data)) push('/users/1')
    }
 
    return (

@@ -1,4 +1,9 @@
-import { USER_AUTH_START, USER_AUTH_SUCCESS, USER_AUTH_FAILURE } from '../../actionsTypes'
+import {
+   USER_AUTH_START,
+   USER_AUTH_SUCCESS,
+   USER_AUTH_FAILURE,
+   USER_AUTH_OFF_START,
+} from '../../actionsTypes'
 
 type Action = {
    type: string
@@ -33,6 +38,12 @@ const auth = (state: State = initialState, action: Action): State => {
          }
 
       case USER_AUTH_FAILURE:
+         return {
+            loading: false,
+            token: '',
+         }
+
+      case USER_AUTH_OFF_START:
          return {
             loading: false,
             token: '',
