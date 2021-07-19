@@ -11,7 +11,6 @@ const App: FC = () => {
    const { push } = useHistory()
 
    useEffect(() => {
-      console.log('pasa', isUserLogged)
       if (isUserLogged) {
          if (pathname === '/login') push('/users/1')
       } else {
