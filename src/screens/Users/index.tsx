@@ -2,8 +2,8 @@ import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 
-import { Layout, Paginator, ListItem } from '@components'
-import { Container, List } from '@styles'
+import { Layout, Paginator, ListItem, NavBar } from '@components'
+import { Container, List, Main } from '@styles'
 import { getUsersStart as getUsers } from '@redux/actions/users'
 import { User, UsersResponse } from '@types'
 
@@ -27,18 +27,21 @@ const Users: FC = () => {
 
    return (
       <Layout className="users">
-         <Container>
-            <List>
-               {users?.map((user: User) => (
-                  <ListItem user={user} />
-               ))}
-            </List>
+         <NavBar />
+         <Main>
+            <Container>
+               <List direction="column">
+                  {users?.map((user: User) => (
+                     <ListItem user={user} />
+                  ))}
+               </List>
 
-            <Paginator
-               totalPages={totalPages}
-               onPageChange={(newPage: number) => push(`/users/${newPage}`)}
-            />
-         </Container>
+               <Paginator
+                  totalPages={totalPages}
+                  onPageChange={(newPage: number) => push(`/users/${newPage}`)}
+               />
+            </Container>
+         </Main>
       </Layout>
    )
 }

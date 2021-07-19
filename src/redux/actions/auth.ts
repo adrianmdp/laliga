@@ -1,4 +1,9 @@
-import { USER_AUTH_START, USER_AUTH_SUCCESS, USER_AUTH_FAILURE } from '@redux/actionsTypes'
+import {
+   USER_AUTH_START,
+   USER_AUTH_SUCCESS,
+   USER_AUTH_FAILURE,
+   USER_AUTH_OFF_START,
+} from '@redux/actionsTypes'
 import { LoginForm } from '@types'
 
 const authStart = ({
@@ -18,4 +23,8 @@ const authFailure = (): { type: string } => ({
    type: USER_AUTH_FAILURE,
 })
 
-export { authStart, authSuccess, authFailure }
+const authOffStart = (): { type: string } => ({
+   type: USER_AUTH_OFF_START,
+})
+
+export { authStart, authSuccess, authFailure, authOffStart }

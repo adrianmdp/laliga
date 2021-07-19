@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { theme } from './theme'
-import { IButton } from './types'
+import { IButton, IUl, IModal } from './types'
 
 const Wrapper = styled.div`
    background: #51238a;
@@ -13,12 +13,23 @@ const Wrapper = styled.div`
    min-height: 100vh;
 `
 
-const Main = styled.main``
+const Main = styled.main`
+   padding-top: 20px;
+   padding-bottom: 20px;
+`
 
 const Container = styled.div`
    width: 50vw;
    max-width: 1400px;
    margin: auto;
+`
+
+const Nav = styled.nav`
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   background-color: #fff;
+   padding: 20px 0;
 `
 
 const Button = styled.button<IButton>`
@@ -48,6 +59,7 @@ const Button = styled.button<IButton>`
    padding: 0px 20px;
    border-radius: ${theme.borderRadius}px;
    border: 0;
+   cursor: pointer;
 `
 
 const Input = styled.input`
@@ -65,18 +77,60 @@ const FormWrapper = styled.div`
    border-radius: ${theme.borderRadius}px;
 `
 
-const List = styled.ul`
+const List = styled.ul<IUl>`
    list-style: none;
    margin: 0;
    padding: 0;
    display: flex;
-   flex-direction: column;
+   flex-direction: ${props => props.direction};
 `
 
 const ListItem = styled.li`
    margin-bottom: 20px;
 `
 
+const Modal = styled.div<IModal>`
+   background-color: rgba(0, 0, 0, 0.8);
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   -webkit-transition: all 300ms ease;
+   -moz-transition: all 300ms ease;
+   -ms-transition: all 300ms ease;
+   -o-transition: all 300ms ease;
+   transition: all 300ms ease;
+   opacity: ${props => (props.isOpen ? 1 : 0)};
+   z-index: ${props => (props.isOpen ? 9999 : -1)};
+`
+const ModalContent = styled.div`
+   background-color: #fff;
+   min-width: 500px;
+   min-height: 200px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+`
+
 const Paginator = styled.ul``
 
-export { Container, Wrapper, Main, Button, FormWrapper, Input, List, ListItem, Paginator }
+export {
+   Container,
+   Wrapper,
+   Nav,
+   Main,
+   Button,
+   FormWrapper,
+   Input,
+   List,
+   ListItem,
+   Modal,
+   ModalContent,
+   Paginator,
+}

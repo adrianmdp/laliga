@@ -11,6 +11,8 @@ export type LoginResponse = {
 
 export type AuthResponse = {
    login: (formData: LoginForm) => boolean
+   logout: () => void
+   isUserLogged: boolean
 }
 
 export type User = {
