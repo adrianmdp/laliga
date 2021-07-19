@@ -3,6 +3,9 @@
    display: flex;
    align-items: center;
    color: #fff;
+   @media (max-width: 992px) {
+      flex-direction: column;
+   }
 
    &::before {
       content: '';
@@ -14,6 +17,9 @@
       border-radius: 30px;
       z-index: 0;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      @media (max-width: 992px) {
+         height: 180px;
+      }
    }
 
    & > * {
@@ -21,6 +27,10 @@
       margin-right: 20px;
       padding: 10px;
       z-index: 1;
+      @media (max-width: 992px) {
+         margin-left: 5px;
+         margin-right: 5px;
+      }
    }
 
    .avatar {
@@ -43,5 +53,8 @@
 
    .email {
       margin-left: auto;
+      @media (max-width: 992px) {
+         margin: auto;
+      }
    }
 }

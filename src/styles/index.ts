@@ -22,14 +22,20 @@ const Container = styled.div`
    width: 50vw;
    max-width: 1400px;
    margin: auto;
+   @media (max-width: 1200px) {
+      width: 70vw;
+   }
+   @media (max-width: 992px) {
+      width: 90vw;
+   }
 `
 
 const Nav = styled.nav`
    display: flex;
    align-items: center;
-   justify-content: flex-end;
+   justify-content: space-between;
    background-color: #fff;
-   padding: 20px 0;
+   padding: 20px 20px;
 `
 
 const Button = styled.button<IButton>`
@@ -71,6 +77,9 @@ const Input = styled.input`
    border-radius: ${theme.borderRadius}px;
    border: 0;
    margin-bottom: 30px;
+   @media (max-width: 667px) {
+      min-width: 100%;
+   }
 `
 
 const FormWrapper = styled.div`
@@ -87,6 +96,9 @@ const List = styled.ul<IUl>`
 
 const ListItem = styled.li`
    margin-bottom: 20px;
+   @media (max-width: 992px) {
+      margin-bottom: 50px;
+   }
 `
 
 const Modal = styled.div<IModal>`
@@ -116,6 +128,11 @@ const ModalContent = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   padding: 20px;
+   @media (max-width: 667px) {
+      max-width: 90vw;
+      min-width: unset;
+   }
 `
 
 const Paginator = styled.ul`
@@ -128,6 +145,12 @@ const Paginator = styled.ul`
    position: absolute;
    top: 50%;
    right: 100px;
+   @media (max-width: 992px) {
+      position: fixed;
+      top: unset;
+      right: 30px;
+      bottom: 30px;
+   }
 `
 
 const PaginatorItem = styled.li`
@@ -143,6 +166,9 @@ const PaginatorButtom = styled.button<IButton>`
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
    color: #fff;
    cursor: pointer;
+   @media (max-width: 992px) {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+   }
 `
 
 export {

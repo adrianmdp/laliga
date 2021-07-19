@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import { Button, List, Modal, ModalContent, Nav } from '@styles'
 import { useAuth } from '@hooks'
+import Logo from '@assets/images/logo.png'
 
 import './styles.scss'
 
@@ -14,6 +15,7 @@ const NavBar: FC = () => {
 
    return (
       <Nav className="nav-bar">
+         <img src={Logo} alt="Logo La Liga" className="logo" width="120" />
          <List direction="row">
             <li>
                <a
