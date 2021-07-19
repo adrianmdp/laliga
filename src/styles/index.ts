@@ -118,7 +118,32 @@ const ModalContent = styled.div`
    justify-content: center;
 `
 
-const Paginator = styled.ul``
+const Paginator = styled.ul`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   position: absolute;
+   top: 50%;
+   right: 100px;
+`
+
+const PaginatorItem = styled.li`
+   margin: 10px;
+`
+
+const PaginatorButtom = styled.button<IButton>`
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   border: 0;
+   background-color: ${props => (props.isActive ? theme.colors.primary : theme.colors.secondary)};
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+   color: #fff;
+   cursor: pointer;
+`
 
 export {
    Container,
@@ -133,4 +158,6 @@ export {
    Modal,
    ModalContent,
    Paginator,
+   PaginatorItem,
+   PaginatorButtom,
 }

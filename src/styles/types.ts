@@ -1,5 +1,6 @@
 export interface IButton {
-   styled: 'primary' | 'light'
+   styled?: 'primary' | 'light'
+   isActive?: boolean
 }
 
 export interface IUl {

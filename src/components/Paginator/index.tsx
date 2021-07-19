@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
+import { useSelector } from 'react-redux'
 
-import { Paginator as SPaginator } from '@styles'
+import { UsersResponse } from '@types'
+import { Paginator as SPaginator, PaginatorButtom, PaginatorItem } from '@styles'
 
 interface Props {
    totalPages: number
@@ -8,12 +10,22 @@ interface Props {
 }
 
 const Paginator: FC<Props> = ({ totalPages, onPageChange }) => {
+   const { page } = useSelector(
+      (state: { users: UsersResponse & { loading: boolean } }) => state.users,
+   )
+
    return (
       <SPaginator>
          {Array.from(Array<number[]>(totalPages).keys()).map(num => (
-            <button type="button" onClick={() => onPageChange(num + 1)}>
-               {num + 1}
-            </button>
+            <PaginatorItem>
+               <PaginatorButtom
+                  type="button"
+                  isActive={num + 1 === page}
+                  onClick={() => onPageChange(num + 1)}
+               >
+                  {num + 1}
+               </PaginatorButtom>
+            </PaginatorItem>
          ))}
       </SPaginator>
    )
