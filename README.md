@@ -12,6 +12,12 @@ In the project directory, you can run:
 yarn install
 ```
 
+### `Correr aplicación`
+
+```sh
+yarn start
+```
+
 ### `Dependencias elegidas entre otras...`
 
 -  [axios] - Solicitudes HTTP
