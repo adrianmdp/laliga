@@ -16,12 +16,13 @@ const App: FC = () => {
       } else {
          push('/login')
       }
+      // eslint-disable-next-line
    }, [isUserLogged, push])
 
    return (
       <Switch>
-         <Route path="/login" component={Login} />
          <Route path="/users/:page" component={Users} />
+         <Route path="/" component={Login} />
       </Switch>
    )
 }
