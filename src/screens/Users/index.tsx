@@ -23,7 +23,7 @@ const Users: FC = () => {
       } catch (err) {
          console.log(err)
       }
-   }, [page])
+   }, [page, dispatch])
 
    return (
       <Layout className="users">
@@ -32,7 +32,7 @@ const Users: FC = () => {
             <Container>
                <List direction="column">
                   {users?.map((user: User) => (
-                     <ListItem user={user} />
+                     <ListItem key={user.id} user={user} />
                   ))}
                </List>
 

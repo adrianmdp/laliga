@@ -17,7 +17,7 @@ const Paginator: FC<Props> = ({ totalPages, onPageChange }) => {
    return (
       <SPaginator>
          {Array.from(Array<number[]>(totalPages).keys()).map(num => (
-            <PaginatorItem>
+            <PaginatorItem key={num}>
                <PaginatorButtom
                   type="button"
                   isActive={num + 1 === page}

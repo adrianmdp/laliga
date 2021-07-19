@@ -17,7 +17,7 @@ const useAuth = (): AuthResponse => {
 
    useEffect(() => {
       if (auth.token !== '') setValue(auth.token)
-   }, [auth.token])
+   }, [auth.token, setValue])
 
    const login = (formData: LoginForm) => {
       try {
